@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ImageCard from './components/ImageCard.js';
 import ImageSearch from './components/ImageSearch.js';
+import ImageModal from './components/ImageModal.js';
 
 
 function App() {
