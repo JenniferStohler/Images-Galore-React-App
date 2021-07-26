@@ -1,4 +1,7 @@
 import React from 'react';
+import { AiOutlineEye } from "react-icons/ai";
+import { AiOutlineDownload } from "react-icons/ai";
+import { AiOutlineLike } from "react-icons/ai";
 
 function App() {
   return (
@@ -10,18 +13,20 @@ function App() {
       </div>
       <div>
       <ul>
+          <li>
+            <strong>
+              <AiOutlineEye />: 400
+              </strong>
+          </li>
         <li>
-          <strong>Views:
-            4000
-          </strong>
-        </li>
-        <li>
-          <strong>Downloads:
+            <strong>
+              <AiOutlineDownload />:
             400
           </strong>
         </li>
         <li>
-          <strong>Likes:
+            <strong>
+              <AiOutlineLike />:
             300
           </strong>
         </li>
