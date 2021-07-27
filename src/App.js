@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ImageCard from './components/ImageCard.js';
 import ImageSearch from './components/ImageSearch.js';
+
 // import ImageModal from './components/ImageModal.js';
 
 
@@ -8,14 +9,9 @@ function App() {
   const [images, setImages] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [term, setTerm] = useState('');
-  const [index, setIndex] = useState('');
+  const [index] = useState('');
   const [displayModal, setDisplayModal] = useState(false);
-  const next = () => {
-    setIndex((i) => (i + 1) % images.length);
-  };
-  const prev = () => {
-    setIndex((i) => ((i - 1) % images.length) % images.length);
-  };
+
   const onClickOutside = (e) => {
     if (e.target.localName !== "button") {
       setDisplayModal(false);
@@ -39,6 +35,18 @@ function App() {
   return (
     <div className="container mx-auto">
       <button onClick={() => setDisplayModal(true)}>
+        {displayModal && (
+          <div style={{
+            position: "absolute",
+            top: 20,
+            left: 20,
+            border: "1px solid-gray",
+            backgroundColor: "white"
+          }}
+          >
+            <img src={images[index]} alt="" style={{ width: 200, height: 200}} />
+           </div>
+        )}
       <ImageSearch searchText={(text) => setTerm(text)} />
       {!isLoading && images.length === 0 && <h1 className="text-6xl text-center mx-auto mt-32">No Images Found</h1>}
       {isLoading ? <h1 className="text-6xl text-center mx-auto mt-32">...Loading...</h1> : <div className="grid grid-cols-3 gap-4">
@@ -47,7 +55,7 @@ function App() {
           )}
       </div>}
         </button>
-        </div>
+    </div>
   );
 }
 
